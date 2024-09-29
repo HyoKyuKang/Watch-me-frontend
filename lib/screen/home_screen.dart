@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:watchme/model/model_movie.dart';
 import 'package:watchme/widget/carousel_slider.dart';
+import 'package:watchme/widget/circle_slider.dart';
+import 'package:watchme/widget/box_slider.dart';
+import 'package:watchme/widget/ott_check.dart';
 
 class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
@@ -8,39 +11,44 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Movie> movies = [
-    Movie.fromMap(
-        {
-          'title': '사랑의 불시착',
-          'keyword': '사랑/로맨스/판타지',
-          'poster': 'intern.jpeg',
-          'like': false
-        }
-    ),
-    Movie.fromMap(
-        {
-          'title': '사랑의 불시착',
-          'keyword': '사랑/로맨스/판타지',
-          'poster': 'intern.jpeg',
-          'like': false
-        }
-    ),
-    Movie.fromMap(
-        {
-          'title': '사랑의 불시착',
-          'keyword': '사랑/로맨스/판타지',
-          'poster': 'intern.jpeg',
-          'like': false
-        }
-    ),
-    Movie.fromMap(
-        {
-          'title': '사랑의 불시착',
-          'keyword': '사랑/로맨스/판타지',
-          'poster': 'intern.jpeg',
-          'like': false
-        }
-    ),
+    Movie.fromMap({
+      'title': '사랑의 불시착',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'intern.jpeg',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': '사랑의 불시착',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'intern.jpeg',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': '사랑의 불시착',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'intern.jpeg',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': '사랑의 불시착',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'intern.jpeg',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': '사랑의 불시착',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'intern.jpeg',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': '사랑의 불시착',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'intern.jpeg',
+      'like': false
+    }),
   ];
+
   @override
   void initState() {
     super.initState();
@@ -49,11 +57,21 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: <Widget> [
-        Stack(children: <Widget> [
-          CarouselImage(movies: movies),
-          TopBar(),
-        ],)
+      children: <Widget>[
+
+        Stack(
+          children: <Widget>[
+            CarouselImage(movies: movies),
+            Column(
+              children: [
+                TopBar(),
+                OTTbar(),
+              ],
+            ),
+          ],
+        ),
+        CircleSlider(movies: movies),
+        BoxSlider(movies: movies),
       ],
     );
   }
